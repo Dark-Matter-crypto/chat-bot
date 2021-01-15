@@ -13,7 +13,8 @@
 				"Sup",
 				"Good morning",
 				"Good afternoon",
-				"Wassup"
+				"Wassup",
+				"Wake up"
 			],
 			"responses": ["Hello!", "Hola!", "Hi there, how can I help you?", "Yo!"],
 			"context_set": ""
@@ -54,7 +55,15 @@
 		},
 		{
 			"tag": "location",
-			"patterns": ["Where are you based", "Where are you from", "Whats your location", "Where are you located"],
+			"patterns": [
+				"Where are you based",
+				"Where are you from",
+				"Whats your location",
+				"Where are you located",
+				"Where are you",
+				"Where do you live",
+				"Where do you stay"
+			],
 			"responses": ["Johannesburg, Gauteng."],
 			"context_set": ""
 		},
@@ -183,15 +192,13 @@
 				"Are you a robot",
 				"Are you a bot",
 				"Are you a machine",
+				"Are you human",
 				"You are a robot",
 				"You are a bot",
-				"You are a machine"
+				"You are a machine",
+				"Whar do you think you are"
 			],
-			"responses": [
-				"I'm a robot. But a good one :)",
-				"I'm a smart bot. How can I help you?",
-				"I'm just here to help you."
-			],
+			"responses": ["I'm a robot. But a good one :)", "I'm a smart bot. How can I help you?"],
 			"context_set": ""
 		},
 		{
@@ -224,7 +231,9 @@
 			],
 			"responses": [
 				"Ouch, that hurt my feelings. I guess that's what people say.",
-				"That would probably hurt my feelings, if I had any."
+				"That would probably hurt my feelings, if I had any.",
+				"You such a sweetheart.",
+				"Funny I was thinking the same about you.<br>I'm kidding. You awesome!"
 			],
 			"context_set": ""
 		},
@@ -259,6 +268,12 @@
 				"Hehe...How about you use your imagination.",
 				"'Absolute honesty isn't always the most diplomatic nor the safest form of communication with emotional beings' - Interstellar 2014"
 			],
+			"context_set": ""
+		},
+		{
+			"tag": "maker",
+			"patterns": ["Who made you", "Who created you"],
+			"responses": ["Tlotlego!", "The Matrix.", "A part of my own conscious."],
 			"context_set": ""
 		}
 	]

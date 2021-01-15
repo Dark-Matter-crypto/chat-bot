@@ -117,7 +117,7 @@ def index_view(request):
 
     try:
         model.load(model_path)
-    except:
+    except Exception:
         model.fit(training, output, n_epoch=5000, batch_size=8, show_metric=True)
         model.save(model_path)
 
@@ -127,8 +127,9 @@ def index_view(request):
         "Not sure what you asking there. Sorry.",
         "Didn't catch that. Please try another question.",
         "Sorry, didn't understand your question.",
-        "Escuze moire?"
+        "Excusez-moi?"
     ]
+    
     results = model.predict([user_bag_of_words(user_input, words)])[0]
     results_index = numpy.argmax(results)
     tag = tags[results_index]

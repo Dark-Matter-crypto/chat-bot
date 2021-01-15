@@ -35,6 +35,9 @@ def index_view(request):
             tags.append(intent['tag'])
 
     words = [stemmer.stem(word.lower()) for word in words]
+    words = sorted(list(set(words)))
+
+    tags = sorted(tags)
 
 
     return HttpResponse(tags)

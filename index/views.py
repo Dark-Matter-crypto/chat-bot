@@ -10,6 +10,7 @@ from nltk.stem.lancaster import LancasterStemmer
 stemmer = LancasterStemmer()
 from django.shortcuts import render
 from django.http import HttpResponseRedirect
+from .models import UserQuery
 from .forms import UserQueryForm
 
 
@@ -31,8 +32,10 @@ def setup_model(training, output, model_path):
     tensorflow.compat.v1.reset_default_graph()
 
     net = tflearn.input_data(shape=[None, len(training[0])])
-    net = tflearn.fully_connected(net, 8)
-    net = tflearn.fully_connected(net, 8)
+    net = tflearn.fully_connected(net, 16)
+    net = tflearn.fully_connected(net, 16)
+    net = tflearn.fully_connected(net, 16)
+    net = tflearn.fully_connected(net, 16)
     net = tflearn.fully_connected(net, len(output[0]), activation="softmax")
     net = tflearn.regression(net)
 
@@ -42,7 +45,7 @@ def setup_model(training, output, model_path):
         model.load(model_path)
     except:
         model = tflearn.DNN(net)
-        model.fit(training, output, n_epoch=1988, batch_size=8, show_metric=True)
+        model.fit(training, output, n_epoch=10000, batch_size=16, show_metric=True)
         model.save(model_path)
     
     return model
@@ -150,13 +153,18 @@ def index_view(request):
             results_index = numpy.argmax(results)
             tag = tags[results_index]
 
+            print(results[results_index])
+
             if results[results_index] > 0.9:
                 for intent in data['intents']:
                     if intent['tag'] == tag:
                         responses = intent['responses']
                 response = random.choice(responses)
+                user_query = UserQuery.objects.create(body=user_input, response=response, success=True)
+
             else:
                 response = generate_fallback()
+                user_query = UserQuery.objects.create(body=user_input, response=response)
 
             context['response'] = response
 
@@ -165,6 +173,7 @@ def index_view(request):
 
             context['conversation'] = conversation
 
+            
     else:
         form = UserQueryForm()
         context['form'] = form

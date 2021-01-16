@@ -40,7 +40,7 @@ def setup_model(training, output, model_path):
         model.load(model_path)
     except:
         model = tflearn.DNN(net)
-        model.fit(training, output, n_epoch=1500, batch_size=8, show_metric=True)
+        model.fit(training, output, n_epoch=2000, batch_size=8, show_metric=True)
         model.save(model_path)
     
     return model
@@ -58,6 +58,18 @@ def user_bag_of_words(user_input, words):
 
     return numpy.array(bag)
 
+
+def generate_fallback():
+    unknown_query_responses = [
+        "Hmmm...Not sure what you asking there.",
+        "This is me telling you I didn't understand what you just said.",
+        "Not sure what you asking there. Sorry.",
+        "Didn't catch that. Please try another question.",
+        "Sorry, didn't understand your question.",
+        "Excusez moi?"
+    ]
+
+    return random.choice(unknown_query_responses)
 
 # Create your views here.
 
@@ -120,30 +132,24 @@ def index_view(request):
     model_path = os.path.join(module_dir, 'static\index\model\model.tflearn')
     model = setup_model(training, output, model_path)
 
-    unknown_query_responses = [
-        "Hmmm...Not sure what you asking there.",
-        "This is me telling you I didn't understand what you just said.",
-        "Not sure what you asking there. Sorry.",
-        "Didn't catch that. Please try another question.",
-        "Sorry, didn't understand your question.",
-        "Excusez moi?"
-    ]
+    
+    if request.method == "POST":
+        user_input = "Hello world"
 
-    #TODO: get user input
-    user_input = "Hello"
+        results = model.predict([user_bag_of_words(user_input, words)])[0]
+        results_index = numpy.argmax(results)
+        tag = tags[results_index]
 
-    results = model.predict([user_bag_of_words(user_input, words)])[0]
-    results_index = numpy.argmax(results)
-    tag = tags[results_index]
-
-    if results[results_index] > 0.85:
-        for intent in data['intents']:
-            if intent['tag'] == tag:
-                responses = intent['responses']
-        response = random.choice(responses)
+        if results[results_index] > 0.8:
+            for intent in data['intents']:
+                if intent['tag'] == tag:
+                    responses = intent['responses']
+            response = random.choice(responses)
+        else:
+            response = generate_fallback()
+            
     else:
-        response = random.choice(unknown_query_responses)
+        
 
-    print(tag)
-    print (response)
+        print (response)
     return HttpResponse(response)

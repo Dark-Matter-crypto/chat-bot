@@ -4,7 +4,7 @@ from .models import UserQuery
 # Register your models here.
 
 class UserQueryAdmin(admin.ModelAdmin):
-    list_display = ('body', 'success', 'date')
+    list_display = ('body', 'response', 'success', 'date')
 
 
 admin.site.register(UserQuery, UserQueryAdmin)

@@ -155,7 +155,7 @@ def index_view(request):
 
             print(results[results_index])
 
-            if results[results_index] > 0.9:
+            if results[results_index] > 0.98:
                 for intent in data['intents']:
                     if intent['tag'] == tag:
                         responses = intent['responses']

@@ -4,8 +4,8 @@ import nltk
 import random
 import json
 import pickle
-# import tensorflow
-# import tflearn
+import tensorflow
+import tflearn
 from nltk.stem.lancaster import LancasterStemmer
 stemmer = LancasterStemmer()
 from django.shortcuts import render, HttpResponse
@@ -25,18 +25,24 @@ def save_data_file(module_dir, words, tags, training, output):
         pickle.dump((words, tags, training, output), data_file)
 
 
-def setup_model(training, output):
-    tensorflow.reset_default_graph()
+def setup_model(training, output, model_path):
+    tensorflow.compat.v1.reset_default_graph()
 
     net = tflearn.input_data(shape=[None, len(training[0])])
-    net = tflearn.fully_connected(net, 8)
-    net = tflearn.fully_connected(net, 8)
     net = tflearn.fully_connected(net, 8)
     net = tflearn.fully_connected(net, 8)
     net = tflearn.fully_connected(net, len(output[0]), activation="softmax")
     net = tflearn.regression(net)
 
     model = tflearn.DNN(net)
+
+    try:
+        model.load(model_path)
+    except:
+        model = tflearn.DNN(net)
+        model.fit(training, output, n_epoch=1500, batch_size=8, show_metric=True)
+        model.save(model_path)
+    
     return model
 
 
@@ -46,7 +52,7 @@ def user_bag_of_words(user_input, words):
     user_words = [stemmer.stem(word.lower()) for word in user_words]
 
     for word in user_words:
-        for i, w in enumerate(user_input):
+        for i, w in enumerate(words):
             if w == word:
                 bag[i] = 1
 
@@ -57,6 +63,7 @@ def user_bag_of_words(user_input, words):
 
 def index_view(request):
     module_dir = os.path.dirname(__file__)
+    data = load_intents_file(module_dir)
 
     try:
         data_file_path = os.path.join(module_dir, 'static\index\data\data.pickle')
@@ -64,7 +71,6 @@ def index_view(request):
             words, tags, training, output = pickle.load(data_file)
 
     except FileNotFoundError:
-        data = load_intents_file(module_dir)
         words = []
         tags = []
         patterns = []
@@ -80,7 +86,7 @@ def index_view(request):
             if intent['tag'] not in tags:
                 tags.append(intent['tag'])
 
-        words = [stemmer.stem(word.lower()) for word in words if w != "?"]
+        words = [stemmer.stem(word.lower()) for word in words if word != "?"]
         words = sorted(list(set(words)))
 
         tags = sorted(tags)
@@ -111,25 +117,21 @@ def index_view(request):
 
         save_data_file(module_dir, words, tags, training, output)
 
-    model = setup_model(training, output)
-
     model_path = os.path.join(module_dir, 'static\index\model\model.tflearn')
+    model = setup_model(training, output, model_path)
 
-    try:
-        model.load(model_path)
-    except Exception:
-        model.fit(training, output, n_epoch=5000, batch_size=8, show_metric=True)
-        model.save(model_path)
-
-    unknown_query_response = [
+    unknown_query_responses = [
         "Hmmm...Not sure what you asking there.",
         "This is me telling you I didn't understand what you just said.",
         "Not sure what you asking there. Sorry.",
         "Didn't catch that. Please try another question.",
         "Sorry, didn't understand your question.",
-        "Excusez-moi?"
+        "Excusez moi?"
     ]
-    
+
+    #TODO: get user input
+    user_input = "Hello"
+
     results = model.predict([user_bag_of_words(user_input, words)])[0]
     results_index = numpy.argmax(results)
     tag = tags[results_index]
@@ -140,6 +142,8 @@ def index_view(request):
                 responses = intent['responses']
         response = random.choice(responses)
     else:
-        response = random.choice(unknown_query_response)
+        response = random.choice(unknown_query_responses)
 
+    print(tag)
+    print (response)
     return HttpResponse(response)

@@ -4,7 +4,7 @@ from django.db import models
 
 
 class UserQuery(models.Model):
-    body = models.CharField(max_length = 40)
+    body = models.CharField(max_length = 80)
     date = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):

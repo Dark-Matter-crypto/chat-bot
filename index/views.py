@@ -8,7 +8,9 @@ import tensorflow
 import tflearn
 from nltk.stem.lancaster import LancasterStemmer
 stemmer = LancasterStemmer()
-from django.shortcuts import render, HttpResponse
+from django.shortcuts import render
+from django.http import HttpResponseRedirect
+from .forms import UserQueryForm
 
 
 def load_intents_file(module_dir):
@@ -133,23 +135,37 @@ def index_view(request):
     model = setup_model(training, output, model_path)
 
     
+    context = {}
+    conversation = []
+
     if request.method == "POST":
-        user_input = "Hello world"
+        form = UserQueryForm(request.POST)
+        context['form'] = form
+        if form.is_valid():
+            user_input = form.cleaned_data["question"]
 
-        results = model.predict([user_bag_of_words(user_input, words)])[0]
-        results_index = numpy.argmax(results)
-        tag = tags[results_index]
+            results = model.predict([user_bag_of_words(user_input, words)])[0]
+            results_index = numpy.argmax(results)
+            tag = tags[results_index]
 
-        if results[results_index] > 0.8:
-            for intent in data['intents']:
-                if intent['tag'] == tag:
-                    responses = intent['responses']
-            response = random.choice(responses)
-        else:
-            response = generate_fallback()
-            
+            if results[results_index] > 0.8:
+                for intent in data['intents']:
+                    if intent['tag'] == tag:
+                        responses = intent['responses']
+                response = random.choice(responses)
+            else:
+                response = generate_fallback()
+
+            context['response'] = response
+
+            conversation.append(user_input)
+            conversation.append(response)
+
+            context['conversation'] = conversation
+
+            return render(request, "index/chatbot.html", context)
     else:
-        
+        form = UserQueryForm()
+        context['form'] = form
 
-        print (response)
-    return HttpResponse(response)
+    return render(request, "index/chatbot.html", context)

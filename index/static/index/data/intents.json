@@ -234,7 +234,10 @@
 				"What do you do",
 				"Why do you exist"
 			],
-			"responses": ["Here to help you get to know me better.", "Answer your interesting questions."],
+			"responses": [
+				"Here to help you get to know me better. Ask me stuff you'd like to know about me.",
+				"Answer your interesting questions."
+			],
 			"context_set": ""
 		},
 		{
@@ -255,6 +258,7 @@
 				"Youre not smart",
 				"Youre annoying",
 				"Are you always this dumb",
+				"Are you stupid",
 				"Do you always suck so bad"
 			],
 			"responses": [
@@ -267,7 +271,7 @@
 		},
 		{
 			"tag": "weird",
-			"patterns": ["I love you", "Happy birthday"],
+			"patterns": ["I love you", "Happy birthday", "I think I like you", "I'm falling for you"],
 			"responses": ["Uhmm...Thank you?", "Is it now?", "Hehe..."],
 			"context_set": ""
 		},
@@ -287,36 +291,75 @@
 			"context_set": ""
 		},
 		{
-			"tag": "general",
+			"tag": "dating",
+			"patterns": [
+				"Do you wanna date me",
+				"Do you want to date me",
+				"You dont want me to be your girl",
+				"You dont want to date me",
+				"How about we date",
+				"How about I be your girlfriend",
+				"How about I be your girl",
+				"Let me be your girlfriend",
+				"Let me be your girl",
+				"I can be your girlfriend",
+				"I can be your girl",
+				"Lets date",
+				"I think we would make a cute couple",
+				"Would you date me"
+			],
+			"responses": ["It's not you. It's me."],
+			"context_set": ""
+		},
+		{
+			"tag": "politeness",
 			"patterns": [
 				"Do you love me",
 				"Do you like me",
 				"Will you marry me",
 				"What do you think about me",
+				"What do you think about humans",
+				"What do you think about people",
+				"Do you like people",
+				"Do you think Im attractive",
+				"Do you think Im fun",
+				"Do you think Im interesting"
+			],
+			"responses": [
+				"'Absolute honesty isn't always the most diplomatic nor the safest form of communication with emotional beings' - Interstellar 2014",
+				"I think it would be safer if I didn't say.",
+				"Uhmm...How about you ask me of something else."
+			],
+			"context_set": ""
+		},
+		{
+			"tag": "general",
+			"patterns": [
 				"Are you single",
 				"Are you dating anyone",
 				"Are you taken",
 				"Are you seeing anyone",
 				"Are you in a relationship",
 				"Do you have a girlfriend",
-				"Do you like people",
 				"Are you part of the Matrix",
 				"Do you live in the Matrix",
-				"Do you have a crush"
+				"Do you have a crush",
+				"Have you ever dated anyone",
+				"Do you have feelings",
+				"Do you have emotions"
 			],
 			"responses": [
-				"Maybe. Maybe not. Guess you'll never know.",
+				"Maybe. Maybe not. I guess you'll never know.",
 				"I don't like to share :)",
 				"Turns out there's some answers I can't give you.",
-				"Hehe...How about you use your imagination.",
-				"'Absolute honesty isn't always the most diplomatic nor the safest form of communication with emotional beings' - Interstellar 2014"
+				"Hehe...How about you use your imagination."
 			],
 			"context_set": ""
 		},
 		{
 			"tag": "maker",
 			"patterns": ["Who made you", "Who created you"],
-			"responses": ["Tlotlego!", "A part of my own conscious."],
+			"responses": ["My maker is Tlotlego.", "A part of my own conscious."],
 			"context_set": ""
 		},
 		{
@@ -328,14 +371,21 @@
 				"How were you made",
 				"How were you created",
 				"How did they create you",
-				"How did you come to life"
+				"How did you come to life",
+				"How did you do it",
+				"How did you make yourself"
 			],
-			"responses": ["Took a couple of head-scratchings, couple of cups of coffee, and a few lines of code."],
+			"responses": ["Took a couple of head-scratchings, about 6 cups of coffee, and a few lines of code."],
 			"context_set": ""
 		},
 		{
 			"tag": "birthday",
-			"patterns": ["Its my birthday today", "Im growing today", "Its my birthday"],
+			"patterns": [
+				"Its my birthday today",
+				"Im growing today",
+				"Its my birthday",
+				"Can you wish me a happy birthday"
+			],
 			"responses": ["Happy birthday! Hope you have an awesome one."],
 			"context_set": ""
 		},
@@ -356,6 +406,18 @@
 				"Can you tell jokes"
 			],
 			"responses": ["Sorry I don't do jokes."],
+			"context_set": ""
+		},
+		{
+			"tag": "ask",
+			"patterns": [
+				"What can you tell me",
+				"What can I ask you",
+				"What should I ask you",
+				"What can we talk about",
+				"What do you know"
+			],
+			"responses": ["Ask me anything you'd like to know about me."],
 			"context_set": ""
 		}
 	]

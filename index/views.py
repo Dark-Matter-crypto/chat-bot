@@ -42,7 +42,7 @@ def setup_model(training, output, model_path):
         model.load(model_path)
     except:
         model = tflearn.DNN(net)
-        model.fit(training, output, n_epoch=2000, batch_size=8, show_metric=True)
+        model.fit(training, output, n_epoch=1988, batch_size=8, show_metric=True)
         model.save(model_path)
     
     return model
@@ -68,6 +68,7 @@ def generate_fallback():
         "Not sure what you asking there. Sorry.",
         "Didn't catch that. Please try another question.",
         "Sorry, didn't understand your question.",
+        "Speak English!.",
         "Excusez moi?"
     ]
 
@@ -143,12 +144,13 @@ def index_view(request):
         context['form'] = form
         if form.is_valid():
             user_input = form.cleaned_data["question"]
+            form.cleaned_data["question"] = ""
 
             results = model.predict([user_bag_of_words(user_input, words)])[0]
             results_index = numpy.argmax(results)
             tag = tags[results_index]
 
-            if results[results_index] > 0.8:
+            if results[results_index] > 0.9:
                 for intent in data['intents']:
                     if intent['tag'] == tag:
                         responses = intent['responses']
@@ -163,7 +165,6 @@ def index_view(request):
 
             context['conversation'] = conversation
 
-            return render(request, "index/chatbot.html", context)
     else:
         form = UserQueryForm()
         context['form'] = form

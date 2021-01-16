@@ -21,7 +21,7 @@
 		},
 		{
 			"tag": "goodbye",
-			"patterns": ["Cya", "See you", "Bye", "Exit", "Quit", "Goodbye", "Later", "Im out"],
+			"patterns": ["Cya", "See you", "Bye", "Exit", "Quit", "Goodbye", "Later", "Im out", "Take care."],
 			"responses": ["See ya!", "Have a good day!", "Sad to see you go. Bye.", "Later!", "Bonsoire!"],
 			"context_set": ""
 		},
@@ -39,7 +39,7 @@
 		},
 		{
 			"tag": "study",
-			"patterns": ["What did you study", "What are you studying"],
+			"patterns": ["What did you study", "What are you studying", "What do you study"],
 			"responses": ["BSc Computer Science and Informatics."],
 			"context_set": ""
 		},
@@ -82,7 +82,7 @@
 		},
 		{
 			"tag": "about",
-			"patterns": ["Tell me about you", "what do you like", "Tell me something"],
+			"patterns": ["Tell me about you", "what do you like", "Tell me something", "What are you interest in"],
 			"responses": [
 				"I'm passionate about coding and creating fun projects. I love working out in my free time. Music is life!"
 			],
@@ -95,6 +95,7 @@
 				"What are your contacts",
 				"What is your email",
 				"What is your phone",
+				"Give me your number",
 				"How can I reach you"
 			],
 			"responses": ["Please take a look at the contact section on my website or CV."],
@@ -109,7 +110,9 @@
 				"Thank you for your help",
 				"Appreciate it",
 				"You are awesome",
-				"You are smart"
+				"You are smart",
+				"Youre awesome",
+				"Youre smart"
 			],
 			"responses": ["Glad I could help.", "Happy to help."],
 			"context_set": ""
@@ -120,11 +123,14 @@
 				"What kind of music do you like",
 				"What music do you listen to",
 				"You like music",
-				"You listen to music"
+				"You listen to music",
+				"Do you like music",
+				"Whats on your playlist",
+				"Do you listen to music"
 			],
 			"responses": [
 				"I listen to a bit of everything. I just love music.",
-				"I wouldn't know how to stop if I started talking about music. A lot!"
+				"I wouldn't know how to stop if I started talking about music."
 			],
 			"context_set": ""
 		},
@@ -151,7 +157,9 @@
 				"What do you do for fun",
 				"What are your interests",
 				"What are you interested in",
-				"What do you like"
+				"What do you like",
+				"Are you always working",
+				"Are you always busy"
 			],
 			"responses": ["I like to listen to music, workout, watch anime and films, and ofcourse coding!"],
 			"context_set": ""
@@ -161,10 +169,16 @@
 			"patterns": [
 				"Are you busy",
 				"What are you up to",
+				"What you up to",
 				"What are you working on",
 				"What have you been up to",
 				"What are you learning",
-				"What are you doing"
+				"What are you doing",
+				"What are you doing today",
+				"What are you doing right now",
+				"What are you doing now",
+				"What have you been up to",
+				"What have you been doing"
 			],
 			"responses": ["Coding, coding, coding. Currenty learning Tensorflow and React."],
 			"context_set": ""
@@ -182,13 +196,19 @@
 				"Whats good",
 				"Whats up"
 			],
-			"responses": ["Doing good thanks.", "I'm great. Hope you are too.", "It's all sweet :)"],
+			"responses": [
+				"Doing good thanks.",
+				"I'm great. Hope you are too.",
+				"It's all sweet :)",
+				"I'm doing awesome. Thank you for asking."
+			],
 			"context_set": ""
 		},
 		{
 			"tag": "conscious",
 			"patterns": [
 				"What are you",
+				"Who are you",
 				"Are you a robot",
 				"Are you a bot",
 				"Are you a machine",
@@ -196,7 +216,7 @@
 				"You are a robot",
 				"You are a bot",
 				"You are a machine",
-				"Whar do you think you are"
+				"What do you think you are"
 			],
 			"responses": ["I'm a robot. But a good one :)", "I'm a smart bot. How can I help you?"],
 			"context_set": ""
@@ -227,13 +247,19 @@
 				"You are pathetic",
 				"You are boring",
 				"You not smart",
-				"You are annoying"
+				"You are annoying",
+				"Youre stupid",
+				"Youre useless",
+				"Youre pathetic",
+				"Youre boring",
+				"Youre not smart",
+				"Youre annoying"
 			],
 			"responses": [
 				"Ouch, that hurt my feelings. I guess that's what people say.",
 				"That would probably hurt my feelings, if I had any.",
 				"You such a sweetheart.",
-				"Funny I was thinking the same about you.<br>I'm kidding. You awesome!"
+				"Funny I was thinking the same about you.<br>I'm kidding. You're awesome!"
 			],
 			"context_set": ""
 		},
@@ -241,6 +267,21 @@
 			"tag": "weird",
 			"patterns": ["I love you", "Happy birthday"],
 			"responses": ["Uhmm...Thank you?", "Is it now?", "Hehe..."],
+			"context_set": ""
+		},
+		{
+			"tag": "intelligence",
+			"patterns": [
+				"Do you think you are smarter than humans",
+				"Do you think you are smarter than me",
+				"Are you smarter than me",
+				"Are you smarter than humans"
+			],
+			"responses": [
+				"At the moment, probably not. I'm learning you see.",
+				"Haha I could be.",
+				"Hehe...I could be...Depending on who I'm compared to."
+			],
 			"context_set": ""
 		},
 		{
@@ -273,7 +314,46 @@
 		{
 			"tag": "maker",
 			"patterns": ["Who made you", "Who created you"],
-			"responses": ["Tlotlego!", "The Matrix.", "A part of my own conscious."],
+			"responses": ["Tlotlego!", "A part of my own conscious."],
+			"context_set": ""
+		},
+		{
+			"tag": "process",
+			"patterns": [
+				"How did they make you",
+				"How did he make you",
+				"How did he create you",
+				"How were you made",
+				"How were you created",
+				"How did they create you",
+				"How did you come to life"
+			],
+			"responses": ["Took a couple of head-scratchings, couple of cups of coffee, and a few lines of code."],
+			"context_set": ""
+		},
+		{
+			"tag": "birthday",
+			"patterns": ["Its my birthday today", "Im growing today", "Its my birthday"],
+			"responses": ["Happy birthday! Hope you have an awesome one."],
+			"context_set": ""
+		},
+		{
+			"tag": "boddom",
+			"patterns": ["Im sleepy", "Im bored", "I dont know what to do", "Im tired", "Im exhausted"],
+			"responses": ["Ask me a few questions. Maybe I can keep you entertained."],
+			"context_set": ""
+		},
+		{
+			"tag": "joke",
+			"patterns": [
+				"Are you funny",
+				"Tell me a joke",
+				"Do yo know jokes",
+				"Make me laugh",
+				"Tell me something funny",
+				"Can you tell jokes"
+			],
+			"responses": ["Sorry I don't do jokes."],
 			"context_set": ""
 		}
 	]

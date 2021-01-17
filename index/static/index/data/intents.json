@@ -99,7 +99,7 @@
 				"How can I reach you"
 			],
 			"responses": [
-				"You can contact me on my email, <a href='mailto:tlotlegomgp@gmail.com' style='color: #272d2d;'>tlotlegomgp@gmail.com</a>"
+				"You can reach me on my email, <a href='mailto:tlotlegomgp@gmail.com'>tlotlegomgp@gmail.com</a>"
 			],
 			"context_set": ""
 		},

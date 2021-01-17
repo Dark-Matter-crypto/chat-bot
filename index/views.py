@@ -155,7 +155,7 @@ def index_view(request):
 
             print(results[results_index])
 
-            if results[results_index] > 0.9:
+            if results[results_index] > 0.85:
                 for intent in data['intents']:
                     if intent['tag'] == tag:
                         responses = intent['responses']
@@ -165,8 +165,6 @@ def index_view(request):
             else:
                 response = generate_fallback()
                 user_query = UserQuery.objects.create(body=user_input, response=response)
-
-            context['response'] = response
 
             conversation.append(user_input)
             conversation.append(response)

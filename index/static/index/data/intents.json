@@ -98,7 +98,9 @@
 				"Give me your number",
 				"How can I reach you"
 			],
-			"responses": ["Please take a look at the contact section on my website or CV."],
+			"responses": [
+				"You can contact me on my email, <a href='mailto:tlotlegomgp@gmail.com' style='color: #272d2d;'>tlotlegomgp@gmail.com</a>"
+			],
 			"context_set": ""
 		},
 		{

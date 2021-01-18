@@ -16,7 +16,12 @@
 				"Wassup",
 				"Wake up"
 			],
-			"responses": ["Hello!", "Hola!", "Hi there, how can I help you?", "Yo!"],
+			"responses": [
+				"Hello!<br><br>What would you like to know?",
+				"Hola!<br><br>What would you like to know?",
+				"Hi there, how can I help you?",
+				"Yo!<br><br>How can I help you?"
+			],
 			"context_set": ""
 		},
 		{
@@ -221,7 +226,6 @@
 				"You good",
 				"I hope you well",
 				"Whats good",
-				"Whats up",
 				"How are you feeling",
 				"How you feeling"
 			],

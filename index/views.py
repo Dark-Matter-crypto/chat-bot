@@ -156,11 +156,11 @@ def index_view(request):
                     if intent['tag'] == tag:
                         responses = intent['responses']
                 response = random.choice(responses)
-                user_query = UserQuery.objects.create(body=user_input, response=response, success=True, accuracy= results[results_index])
+                user_query = UserQuery.objects.create(body=user_input, response=response, success=True, accuracy=float(results[results_index]))
 
             else:
                 response = generate_fallback()
-                user_query = UserQuery.objects.create(body=user_input, response=response, accuracy= results[results_index])
+                user_query = UserQuery.objects.create(body=user_input, response=response, accuracy=float(results[results_index]))
 
             conversation.append(user_input)
             conversation.append(response)

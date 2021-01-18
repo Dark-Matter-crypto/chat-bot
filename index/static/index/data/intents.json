@@ -191,7 +191,6 @@
 				"What do you do for fun",
 				"What are your interests",
 				"What are you interested in",
-				"What do you like",
 				"Are you always working",
 				"Are you always busy"
 			],
@@ -207,7 +206,6 @@
 				"What are you doing today",
 				"What are you doing right now",
 				"What are you doing now",
-				"What have you been up to",
 				"What have you been doing"
 			],
 			"responses": ["Coding, coding, coding. Currenty learning Tensorflow and React."],
@@ -390,13 +388,13 @@
 				"Do you think you are smarter than humans",
 				"Do you think you are smarter than me",
 				"Are you smarter than me",
-				"Are you smarter than humans"
+				"Are you smarter than humans",
+				"Are you smart",
+				"Are you clever",
+				"Are you AI",
+				"Are you intelligent"
 			],
-			"responses": [
-				"At the moment, probably not. I'm learning you see.",
-				"Haha I could be.",
-				"Hehe...I could be...Depending on who I'm compared to."
-			],
+			"responses": ["Haha I could be. I'm learning you see."],
 			"context_set": ""
 		},
 		{
@@ -463,7 +461,10 @@
 				"Is there anyone youre seeing",
 				"Is there anyone you have a crush on",
 				"Is there a girl you have a crush on",
-				"Is there a girl you like"
+				"Is there a girl you like",
+				"Do you know what love is",
+				"Can you feel love",
+				"Do you experience emotions"
 			],
 			"responses": [
 				"Maybe. Maybe not. I guess you'll never know.",

@@ -70,7 +70,6 @@ def generate_fallback():
         "Not sure what you asking there. Sorry.",
         "Didn't catch that. Please try another question.",
         "Sorry, didn't understand your question.",
-        "Speak English!.",
         "Excusez moi?"
     ]
 
@@ -151,18 +150,17 @@ def index_view(request):
             results_index = numpy.argmax(results)
             tag = tags[results_index]
 
-            print(results[results_index])
 
             if results[results_index] > 0.85:
                 for intent in data['intents']:
                     if intent['tag'] == tag:
                         responses = intent['responses']
                 response = random.choice(responses)
-                user_query = UserQuery.objects.create(body=user_input, response=response, success=True)
+                user_query = UserQuery.objects.create(body=user_input, response=response, success=True, accuracy= results[results_index])
 
             else:
                 response = generate_fallback()
-                user_query = UserQuery.objects.create(body=user_input, response=response)
+                user_query = UserQuery.objects.create(body=user_input, response=response, accuracy= results[results_index])
 
             conversation.append(user_input)
             conversation.append(response)

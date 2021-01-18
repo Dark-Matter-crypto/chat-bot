@@ -39,7 +39,13 @@
 		},
 		{
 			"tag": "name",
-			"patterns": ["You have a name", "What is your name", "What should i call you", "What do people call you"],
+			"patterns": [
+				"You have a name",
+				"What is your name",
+				"Whats your name",
+				"What should i call you",
+				"What do people call you"
+			],
 			"responses": ["You can call me Tlotlego :)", "Tlotlego!"],
 			"context_set": ""
 		},
@@ -71,6 +77,7 @@
 				"Where are you based",
 				"Where are you from",
 				"Whats your location",
+				"What is your location",
 				"Where are you located",
 				"Where are you",
 				"Where do you live",
@@ -83,6 +90,7 @@
 			"tag": "skills",
 			"patterns": [
 				"What is your tech stack",
+				"Whats your tech stack",
 				"What are your skills",
 				"Which technologies",
 				"What technologies",
@@ -107,6 +115,9 @@
 				"What are your contacts",
 				"What is your email",
 				"What is your phone",
+				"Whats your contacts",
+				"Whats your email",
+				"Whats your phone",
 				"Give me your number",
 				"How can I reach you"
 			],
@@ -140,6 +151,7 @@
 				"You listen to music",
 				"Do you like music",
 				"Whats on your playlist",
+				"What is on your playlist",
 				"Do you listen to music"
 			],
 			"responses": [
@@ -151,10 +163,12 @@
 		{
 			"tag": "anime",
 			"patterns": [
-				"You like anime",
+				"Do you like anime",
 				"What anime do you watch",
 				"What is your favourite anime",
-				"Which anime are you watching"
+				"Whats your favourite anime",
+				"Which anime are you watching",
+				"What anime are you into"
 			],
 			"responses": [
 				"I've watched a lot of great anime. My favourite probably Steins Gate, with Deathnote a close second."
@@ -166,6 +180,7 @@
 			"patterns": [
 				"What are your hobbies",
 				"What is your hobby",
+				"Whats your hobby",
 				"Do you have a hobby",
 				"Do you have hobbies",
 				"What do you do for fun",
@@ -182,11 +197,7 @@
 			"tag": "busy",
 			"patterns": [
 				"Are you busy",
-				"What are you up to",
 				"What you up to",
-				"What are you working on",
-				"What have you been up to",
-				"What are you learning",
 				"What are you doing",
 				"What are you doing today",
 				"What are you doing right now",
@@ -204,11 +215,15 @@
 				"Are you okay",
 				"Are you happy",
 				"Hows it going",
+				"How is it going",
 				"How are you doing",
+				"How you doing",
 				"You good",
 				"I hope you well",
 				"Whats good",
-				"Whats up"
+				"Whats up",
+				"How are you feeling",
+				"How you feeling"
 			],
 			"responses": [
 				"Doing good, thanks.",
@@ -242,6 +257,7 @@
 				"What are you cable of",
 				"Why did they make you",
 				"Whats your purpose",
+				"What is your purpose",
 				"What can you help me with",
 				"What can you do for me",
 				"What are you good at",
@@ -273,7 +289,9 @@
 				"Youre annoying",
 				"Are you always this dumb",
 				"Are you stupid",
-				"Do you always suck so bad"
+				"Do you always suck so bad",
+				"Why do you suck so bad",
+				"Why do you suck"
 			],
 			"responses": [
 				"Ouch, that hurt my feelings. I guess that's what people say.",
@@ -285,7 +303,14 @@
 		},
 		{
 			"tag": "weird",
-			"patterns": ["I love you", "Happy birthday", "I think I like you", "I'm falling for you"],
+			"patterns": [
+				"I love you",
+				"Happy birthday",
+				"I think I like you",
+				"I'm falling for you",
+				"I think I love you",
+				"Im falling for you"
+			],
 			"responses": ["Uhmm...Thank you?", "Is it now?", "Hehe..."],
 			"context_set": ""
 		},
@@ -311,7 +336,8 @@
 				"Favourite book",
 				"What books do you read",
 				"What books have you read",
-				"What are you currently reading"
+				"What are you currently reading",
+				"Whats your favourite book"
 			],
 			"responses": [
 				"12 Rules For Life<br>Steve Jobs - Walter Issacson<br>The Design of Everyday Things<br>The Subtle Art of Not Giving A F*ck"
@@ -332,7 +358,13 @@
 		},
 		{
 			"tag": "horoscope",
-			"patterns": ["Whats your star sign", "Do you believe in star signs", "Whats your horoscope"],
+			"patterns": [
+				"Whats your star sign",
+				"What is your star sign",
+				"Do you believe in star signs",
+				"Whats your horoscope",
+				"What is your horoscope"
+			],
 			"responses": ["Don't believe in horoscopes. Don't belive in Santa."],
 			"context_set": ""
 		},
@@ -379,7 +411,8 @@
 				"I can be your girl",
 				"Lets date",
 				"I think we would make a cute couple",
-				"Would you date me"
+				"Would you date me",
+				"Would you like to date me"
 			],
 			"responses": ["It's not you. It's me."],
 			"context_set": ""
@@ -421,7 +454,12 @@
 				"Do you have feelings",
 				"Do you have emotions",
 				"Are you into girls",
-				"Are you into women"
+				"Are you into women",
+				"Is there anyone you like",
+				"Is there anyone youre seeing",
+				"Is there anyone you have a crush on",
+				"Is there a girl you have a crush on",
+				"Is there a girl you like"
 			],
 			"responses": [
 				"Maybe. Maybe not. I guess you'll never know.",
@@ -478,7 +516,9 @@
 				"Do yo know jokes",
 				"Make me laugh",
 				"Tell me something funny",
-				"Can you tell jokes"
+				"Can you tell jokes",
+				"Do you have any jokes",
+				"Do you know jokes"
 			],
 			"responses": ["Sorry I don't do jokes."],
 			"context_set": ""
@@ -493,6 +533,34 @@
 				"What do you know"
 			],
 			"responses": ["Ask me anything you'd like to know about me."],
+			"context_set": ""
+		},
+		{
+			"tag": "projects",
+			"patterns": [
+				"What have you been working on",
+				"What have you been up to",
+				"What are you learning",
+				"What are you currently working on",
+				"What are you working on",
+				"What have you been busy with",
+				"What have you built",
+				"What are you up to",
+				"Where can I find more of your work",
+				"Where can I find your projects",
+				"What projects are you working on",
+				"Where can I find you work",
+				"Where can I view your work",
+				"Do you a github",
+				"Are you on github",
+				"What can you build",
+				"Do you have a website",
+				"How many projects do you have",
+				"How many projects have you worked on"
+			],
+			"responses": [
+				"You can view all my fun projects on my <a href='https://github.com/Dark-Matter-crypto'>Github Profile</a>."
+			],
 			"context_set": ""
 		}
 	]

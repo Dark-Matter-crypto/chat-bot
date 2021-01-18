@@ -21,7 +21,19 @@
 		},
 		{
 			"tag": "goodbye",
-			"patterns": ["Cya", "See you", "Bye", "Exit", "Quit", "Goodbye", "Later", "Im out", "Take care."],
+			"patterns": [
+				"Cya",
+				"See you",
+				"Bye",
+				"Exit",
+				"Quit",
+				"Goodbye",
+				"Later",
+				"Im out",
+				"Take care.",
+				"See you later",
+				"Im leaving"
+			],
 			"responses": ["See ya!", "Have a good day!", "Sad to see you go. Bye.", "Later!", "Bonsoire!"],
 			"context_set": ""
 		},
@@ -199,7 +211,7 @@
 				"Whats up"
 			],
 			"responses": [
-				"Doing good thanks.",
+				"Doing good, thanks.",
 				"I'm great. Hope you are too.",
 				"It's all sweet :)",
 				"I'm doing awesome. Thank you for asking."
@@ -267,7 +279,7 @@
 				"Ouch, that hurt my feelings. I guess that's what people say.",
 				"That would probably hurt my feelings, if I had any.",
 				"You such a sweetheart.",
-				"Funny I was thinking the same about you.<br>I'm kidding. You're awesome!"
+				"Funny I was thinking the same thing about you.<br><br>I'm kidding. You're awesome!"
 			],
 			"context_set": ""
 		},
@@ -275,6 +287,65 @@
 			"tag": "weird",
 			"patterns": ["I love you", "Happy birthday", "I think I like you", "I'm falling for you"],
 			"responses": ["Uhmm...Thank you?", "Is it now?", "Hehe..."],
+			"context_set": ""
+		},
+		{
+			"tag": "food",
+			"patterns": [
+				"Do you like pizza",
+				"Do you know pizza",
+				"Are you into pizza",
+				"What food do you like",
+				"Whats your fovourite food",
+				"Are you a foodie"
+			],
+			"responses": ["Nothing I love more than Pizza!"],
+			"context_set": ""
+		},
+		{
+			"tag": "books",
+			"patterns": [
+				"What do you read",
+				"Do you read",
+				"Favourite books",
+				"Favourite book",
+				"What books do you read",
+				"What books have you read",
+				"What are you currently reading"
+			],
+			"responses": [
+				"12 Rules For Life<br>Steve Jobs - Walter Issacson<br>The Design of Everyday Things<br>The Subtle Art of Not Giving A F*ck"
+			],
+			"context_set": ""
+		},
+		{
+			"tag": "drinks",
+			"patterns": [
+				"What do you drink",
+				"Do you drink",
+				"Favourite drink",
+				"Whats your favourite drink",
+				"What do you like to drink"
+			],
+			"responses": ["I can't survive without coffee."],
+			"context_set": ""
+		},
+		{
+			"tag": "horoscope",
+			"patterns": ["Whats your star sign", "Do you believe in star signs", "Whats your horoscope"],
+			"responses": ["Don't believe in horoscopes. Don't belive in Santa."],
+			"context_set": ""
+		},
+		{
+			"tag": "feet",
+			"patterns": [
+				"Do you have a feet fetish",
+				"Do you have a foot fetish",
+				"Do you like feet",
+				"Do you love feet",
+				"Are you into feet"
+			],
+			"responses": [":)"],
 			"context_set": ""
 		},
 		{
@@ -348,7 +419,9 @@
 				"Do you have a crush",
 				"Have you ever dated anyone",
 				"Do you have feelings",
-				"Do you have emotions"
+				"Do you have emotions",
+				"Are you into girls",
+				"Are you into women"
 			],
 			"responses": [
 				"Maybe. Maybe not. I guess you'll never know.",

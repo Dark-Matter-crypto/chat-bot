@@ -1,6 +1,6 @@
 # MGP-Bot
 
-A Django and Python chatbot webapp. Users can ask the bot any number of questions about me. Trained the model with Tensorflow 2, based of a series of questions people ask me on a regular.
+A Django and Python chatbot web app. Users can ask the bot any number of questions about me. Trained the model with Tensorflow 2, based of a series of questions people ask me on a regular.
 
 ![](/repoImages/chatbot.jpg)
 

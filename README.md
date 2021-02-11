@@ -14,7 +14,7 @@ A Django and Python chatbot web app. Users can ask the bot any number of questio
 
 1. Set up virtual environment:
 ```
-    mkdr chatbot
+    mkdir chatbot
     cd chatbot
     pip install virtualenv
     python -m venv virtual
@@ -25,7 +25,7 @@ A Django and Python chatbot web app. Users can ask the bot any number of questio
 2. Clone project and install requirements:
 ```
     git clone 'repo_address'
-    cd chatbot
+    cd chat-bot
     pip install -r requirements.txt
 ```
 

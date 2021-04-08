@@ -5,7 +5,7 @@ A Django and Python chatbot web app. Users can ask the bot any number of questio
 ![](/repoImages/chatbot.jpg)
 
 ### Tech Stack:
-* Django 3.1.5
+* Django 3.2
 * Tensorflow 2.4.0
 * Python 3.8.7
 * Bootstrap
